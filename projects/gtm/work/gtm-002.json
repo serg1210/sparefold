@@ -1,0 +1,18 @@
+{
+  "id": "gtm-002",
+  "project": "gtm",
+  "title": "Thread splitter",
+  "summary": "Split a launch post into posts that fit a short limit, without cutting a word.",
+  "points": 2,
+  "budget_minutes": 25,
+  "claim_ttl_minutes": 180,
+  "lane": "gtm",
+  "status": "open",
+  "allowed_paths": ["sparefold/gtm/thread.py"],
+  "checker": {
+    "command": ["python3", "projects/gtm/checks/check_gtm_002.py"],
+    "paths": ["projects/gtm/checks/check_gtm_002.py"],
+    "timeout_s": 30
+  },
+  "spec": "Create sparefold/gtm/thread.py with split_thread(text, limit=280) -> list[str].\n\nContract, checked by projects/gtm/checks/check_gtm_002.py:\n- Normalize whitespace to single spaces. Empty or whitespace-only text raises ValueError.\n- Each returned post is \"i/n \" plus words, and len(post) <= limit.\n- Never split a word. If one word cannot fit in a post after its prefix, raise ValueError.\n- i and n are 1-indexed and n is the final number of posts. Choosing the split must account for the width of that final prefix.\n- Dropping each \"i/n \" prefix and joining the remainders with single spaces returns the normalized text.\n- Do not edit the checker. Do not edit sparefold/gtm/__init__.py."
+}

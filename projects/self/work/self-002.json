@@ -1,0 +1,18 @@
+{
+  "id": "self-002",
+  "project": "self",
+  "title": "Declared-budget admission",
+  "summary": "Refuse a unit when the operator says they have fewer minutes than it costs. Never invent a quota number.",
+  "points": 3,
+  "budget_minutes": 25,
+  "claim_ttl_minutes": 180,
+  "lane": "self",
+  "status": "open",
+  "allowed_paths": ["sparefold/budget.py"],
+  "checker": {
+    "command": ["python3", "projects/self/checks/check_self_002.py"],
+    "paths": ["projects/self/checks/check_self_002.py"],
+    "timeout_s": 30
+  },
+  "spec": "Create sparefold/budget.py with admission(remaining_minutes, budget_minutes) -> bool and load_remaining(path) -> int | None.\n\nContract, checked by projects/self/checks/check_self_002.py:\n- remaining_minutes is None means undeclared. Return True. Do not invent a number and do not call a provider.\n- negative remaining_minutes raises ValueError.\n- budget_minutes < 1 raises ValueError.\n- otherwise return True only when remaining_minutes >= budget_minutes.\n- load_remaining on a missing path returns None.\n- a JSON object {\"remaining_minutes\": <int>} returns that int.\n- any other JSON shape raises ValueError.\n- Do not read environment variables, API keys, or the network.\n- Do not edit the checker."
+}

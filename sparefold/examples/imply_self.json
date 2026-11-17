@@ -1,0 +1,11 @@
+{
+  "goal": {
+    "op": "implies",
+    "left": {"op": "atom", "name": "P"},
+    "right": {"op": "atom", "name": "P"}
+  },
+  "steps": [
+    {"id": "a", "rule": "assume", "formula": {"op": "atom", "name": "P"}},
+    {"id": "b", "rule": "imply_intro", "from": "a", "discharge": "a"}
+  ]
+}

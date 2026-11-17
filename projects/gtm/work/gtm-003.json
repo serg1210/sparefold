@@ -1,0 +1,18 @@
+{
+  "id": "gtm-003",
+  "project": "gtm",
+  "title": "SVG join card",
+  "summary": "A 1200x630 card a contributor can attach to a post. Handle, points, project. No script.",
+  "points": 2,
+  "budget_minutes": 25,
+  "claim_ttl_minutes": 180,
+  "lane": "gtm",
+  "status": "open",
+  "allowed_paths": ["sparefold/gtm/svgcard.py"],
+  "checker": {
+    "command": ["python3", "projects/gtm/checks/check_gtm_003.py"],
+    "paths": ["projects/gtm/checks/check_gtm_003.py"],
+    "timeout_s": 30
+  },
+  "spec": "Create sparefold/gtm/svgcard.py with render_svg_card(handle, points, project) -> str.\n\nContract, checked by projects/gtm/checks/check_gtm_003.py:\n- Return an SVG document whose stripped text starts with <svg.\n- Include width=\"1200\" and height=\"630\".\n- Include the handle, the project name, and the decimal points as text.\n- Escape XML metacharacters in handle and project. A handle of <script> must not produce the substring <script>.\n- No <script and no href=.\n- Light background, dark text.\n- Do not edit the checker."
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+ledger/local.json
+ledger/claims/*
+!ledger/claims/.gitkeep
+dist/
+*.egg-info/
+.venv/
+.python-version
+.mypy_cache/

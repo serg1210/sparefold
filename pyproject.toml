@@ -1,0 +1,25 @@
+[project]
+name = "sparefold"
+version = "0.1.0"
+description = "Spare Claude and Codex quota, spent on machine-checked open source."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []
+
+[project.scripts]
+sparefold = "sparefold.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/serg1210/sparefold"
+Repository = "https://github.com/serg1210/sparefold"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["sparefold*"]
+
+[tool.setuptools.package-data]
+sparefold = ["examples/*.json"]

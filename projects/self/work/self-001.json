@@ -1,0 +1,18 @@
+{
+  "id": "self-001",
+  "project": "self",
+  "title": "HTML leaderboard export",
+  "summary": "Render accepted results as one light HTML page. The site should not invent a score.",
+  "points": 3,
+  "budget_minutes": 30,
+  "claim_ttl_minutes": 180,
+  "lane": "self",
+  "status": "open",
+  "allowed_paths": ["sparefold/export_html.py"],
+  "checker": {
+    "command": ["python3", "projects/self/checks/check_self_001.py"],
+    "paths": ["projects/self/checks/check_self_001.py"],
+    "timeout_s": 30
+  },
+  "spec": "Create sparefold/export_html.py exporting render_leaderboard(rows) -> str.\n\nrows is a list of dicts with keys handle (str), points (int), and units (list of str).\n\nContract, checked by projects/self/checks/check_self_001.py:\n- Return a complete HTML document (the string contains <html).\n- Include a <table>.\n- Sort by points descending, then handle ascending.\n- Include every handle and every unit id as visible text.\n- Escape handles and unit ids so the characters <script> cannot appear unescaped.\n- When rows is empty, the document contains the exact text No accepted results.\n- No <script and no external stylesheet or network request.\n- Light background, dark text.\n- Do not edit the checker, and do not read credentials."
+}
