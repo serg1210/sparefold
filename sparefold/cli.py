@@ -174,7 +174,7 @@ def checklist(root: Path) -> list[tuple[str, bool, str]]:
         items.append(("seed checkers pass", True, "gym, kernel, proof"))
     except Exception as exc:
         items.append(("seed checkers pass", False, str(exc)))
-    site = root / "site" / "index.html"
+    site = root / "docs" / "index.html"
     site_text = site.read_text(encoding="utf-8") if site.is_file() else ""
     missing = [unit["id"] for unit in units if unit["status"] == "open" and unit["id"] not in site_text]
     items.append(("site lists open units", site.is_file() and not missing, ", ".join(missing)))

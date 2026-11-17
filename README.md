@@ -96,4 +96,4 @@ python3 -m unittest discover -s tests -v
 python3 -m sparefold gtm checklist
 ```
 
-MIT. The site is [site/index.html](site/index.html).
+MIT. The launch page is [docs/index.html](docs/index.html).
